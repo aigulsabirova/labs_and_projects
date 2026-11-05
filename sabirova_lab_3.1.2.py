@@ -1,4 +1,13 @@
-n = int(input('введите количество чисел: '))
+g = True
+while g:
+    try:
+        n = int(input('введите количество чисел: '))
+        if n > 0:
+            g = False
+        else:
+            print('неверный ввод')
+    except ValueError:
+        print('неверный ввод')
 s = 0
 i = 0
 f = 1
