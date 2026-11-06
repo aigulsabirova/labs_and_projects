@@ -1,0 +1,19 @@
+g = True
+while g:
+    try:
+        n = int(input('введите количество чисел: '))
+        if n > 0:
+            g = False
+        else:
+            print('неверный ввод')
+    except ValueError:
+        print('неверный ввод')
+s = 0
+i = 0
+f = 1
+while i < n:
+    x = int(input(f'введите число {i+1}: '))
+    f = f * (x % 2 == 0)
+    s = s + x * f
+    i += 1
+print('сумма четных чисел в начале последовательности: ', s)
