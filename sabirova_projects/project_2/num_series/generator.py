@@ -40,3 +40,12 @@ def trend_series(n: int, start: float = 0.0, step: float = 1.0, noise: float = 0
         start + step * i + (rng.uniform(-noise, noise) if noise else 0.0)
         for i in range(n)
     ]
+
+def v3_series(n: int = 1000, seed: Optional[int] = None) -> List[float]:
+    """Аналитический ряд для Варианта 3: x[i] = sin(0.1*i) + uniform(-0.1, 0.1)."""
+    _validate_n(n)
+    rng = random.Random(seed)
+    return [
+        math.sin(0.1 * i) + rng.uniform(-0.1, 0.1)
+        for i in range(n)
+    ]

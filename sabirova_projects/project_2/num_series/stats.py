@@ -33,3 +33,14 @@ def summarize(data: Sequence[float]) -> Dict[str, float]:
         'min': float(min(data)),
         'max': float(max(data)),
     }
+
+def max_min_info(data: Sequence[float]) -> Dict[str, float]:
+    """Возвращает разность max-min по модулю и индексы максимума/минимума."""
+    _ensure_not_empty(data)
+    max_val = max(data)
+    min_val = min(data)
+    return {
+        "diff_abs": abs(max_val - min_val),
+        "max_index": data.index(max_val),
+        "min_index": data.index(min_val),
+    }

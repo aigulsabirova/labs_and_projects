@@ -36,3 +36,14 @@ def exponential_moving_average(data: Sequence[float], alpha: float) -> List[floa
     for i in range(1, len(data)):
         result.append(alpha * data[i] + (1 - alpha) * result[-1])
         return result
+
+def simple_moving_average_naive(data: Sequence[float], window: int) -> List[float]:
+    """Наивная реализация SMA (через sum), для проверки первой."""
+    if not data:
+        raise ValueError("Ряд пуст")
+    _check_window(window, len(data))
+
+    result = []
+    for i in range(len(data) - window + 1):
+        result.append(sum(data[i:i+window]) / window)
+    return result
